@@ -11,18 +11,17 @@ canvas.height=window.innerHeight;
 canvas.width=window.innerWidth;
 
 let speed;
-
-speed=17;
+let limit;
 
 let pong1Touch=false;
 let number;
 
 let pongWidth=canvas.width/38;
-let pongHeight=250;
+let pongHeight;
 
 let pong1Y=100;      //pong1X and pong1Y
 let pong1X=0;
-let speedpong1Y=10;
+let speedpong1Y;
 
 let pong2X=canvas.width-pongWidth;   //pong2X and pong2Y
 let pong2Y=100;
@@ -31,16 +30,48 @@ let ballX=canvas.width/2;
 let ballY=canvas.height/2;
 let ballWidth=canvas.width/30;
 let ballHeight=canvas.height/22;
+let randomnumber;
+
+function speedAndPong(){
+    if(canvas.width>1900 && canvas.width<2400){
+        speedpong1Y=20;
+        speed=20;
+        pongHeight=300;
+        limit=100;
+       }else if(canvas.width>1500 && canvas.width<1900){
+       speedpong1Y=17;
+       speed=17;
+       pongHeight=250;
+       limit=100;
+    }else if(canvas.width>=2400){
+       speedpong1Y=21;
+        speed=21;
+        pongHeight=350;
+        limit=150;
+       }
+}
+speedAndPong();
+
 let vectorX=-speed;
-let vectorY=-speed;
+let vectorY;
 
+function generateVector(){
+    randomnumber=Math.floor(Math.random() * 2) + 1;
+    if(randomnumber===1){
+        vectorY=-speed;
+    }else if(randomnumber===2){
+        vectorY=speed;
+    }
+    
+}
 
+generateVector();
 //drawing the pongs
 
 function deathParams(){
     ballX=canvas.width/2;
     ballY=canvas.height/2;
-    speed=17;
+    speedAndPong()
 
     vectorX=0;
     vectorY=0;
@@ -64,11 +95,11 @@ function drawPong2(){
 
 
 function automatePong(){
-if(ballY+pongHeight-100<canvas.height && ballY-number>=0 && pong1Touch===true){
+if(ballY+pongHeight-limit<canvas.height && ballY-number>=0 && pong1Touch===true){
     if(pong2Y<ballY-number){
-        pong2Y+=14;
+        pong2Y+=speedpong1Y;
     }else if(pong2Y>ballY-number){
-        pong2Y-=14;
+        pong2Y-=speedpong1Y;
     }else if(pong2Y===ballY-number){
      pong2Y=ballY-number;
     }
@@ -111,13 +142,16 @@ function moveBall(){
    deathParams();
  }
 
-
+ if(ballX+ballWidth-25>pong2X && ballY+ballHeight>pong2Y && ballY<pong2Y || ballX+ballWidth-25>pong2X && ballY<pong2Y+pongHeight && ballY + ballHeight>pong2Y){
+    win.style.display='flex';
+    deathParams();
+}
 
     if(ballX<=pong1X+pongWidth && ballY>=pong1Y && ballY<=pong1Y+pongHeight || ballX<pong1X+pongWidth && ballY+ballHeight>pong1Y && ballY+ballHeight<pong1Y+pongHeight)
     {
      vectorX=-vectorX;
     pong1Touch=true;
-    number=Math.floor(Math.random() * 250);
+    number=Math.floor(Math.random() * pongHeight+50);
     }
 
 
@@ -153,13 +187,13 @@ window.addEventListener('keydown',(e)=>{
 
 win_btn.addEventListener('click',()=>{
   vectorX=-speed;
-  vectorY=-speed;
+   generateVector();
   win.style.display='none';
 })
 
 lose_btn.addEventListener('click',()=>{
     vectorX=-speed;
-    vectorY=-speed;
+    generateVector();    
     lose.style.display='none';
   })
 
