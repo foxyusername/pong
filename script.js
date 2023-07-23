@@ -92,12 +92,10 @@ function moveBall(){
     }
     if(ballX + ballWidth>=canvas.width){
         win.style.display='flex';
-        alert('you won');
        deathParams();
     }
     if(ballX<=0){
        lose.style.display='flex';
-       alert('you lose');
         deathParams();
     }
 
