@@ -34,6 +34,8 @@
   border-radius: 10px;
   text-align: center;
   align-items: center;
+  box-shadow: 3px 3px 10px rgb(196, 193, 193);
+
 }
 
 #win h1{
@@ -65,12 +67,13 @@
   transform: translate(-50%,-50%);
   background-color: rgb(255, 255, 255);
   width: 16%;
-  max-width: calc(2000px * 16/100);
+  max-width: calc(2300px * 16/100);
   max-width: 1500;
   height: 150px;
   border-radius: 10px;
   text-align: center;
   align-items: center;
+box-shadow: 3px 3px 10px rgb(195, 195, 195);
 }
 
 #lose h1{
@@ -114,6 +117,26 @@ button{
     #canvas{
         max-width: 1500px;
         height: 80vh;
+    }
+    #win{
+        height: 200px;
+        gap: 100px;
+    }
+    #win h1{
+        font-size: 35px;
+    }
+    #lose h1{
+        font-size: 35px;
+    }
+    #lose{
+        height: 200px;
+        gap: 100px;
+    }
+    #lose button{
+        transform: scale(1.4);
+    }
+    #win button {
+        transform: scale(1.4);
     }
 }
 

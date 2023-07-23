@@ -12,7 +12,7 @@ canvas.width=window.innerWidth;
 
 let speed;
 
-speed=9;
+speed=17;
 
 let pong1Touch=false;
 let number;
@@ -34,12 +34,13 @@ let ballHeight=canvas.height/22;
 let vectorX=-speed;
 let vectorY=-speed;
 
+
 //drawing the pongs
 
 function deathParams(){
     ballX=canvas.width/2;
     ballY=canvas.height/2;
-    speed=9;
+    speed=17;
 
     vectorX=0;
     vectorY=0;
@@ -99,10 +100,16 @@ function moveBall(){
         deathParams();
     }
 
-   if(ballX+2<pong1X+pongWidth && ballY>=pong1Y && ballY<=pong1Y+pongHeight || ballX+2<pong1X+pongWidth && ballY+ballHeight>=pong1Y && ballY+ballHeight<=pong1Y+pongHeight ){
+  // if(ballX+2<pong1X+pongWidth && ballY>=pong1Y && ballY<=pong1Y+pongHeight  || ballX+2<pong1X+pongWidth && ballY+ballHeight>=pong1Y && ballY+ballHeight<=pong1Y+pongHeight ){
+  //  lose.style.display='flex';
+  //  deathParams();
+  //    }
+
+
+ if(ballX+10<pong1X+pongWidth && ballY<pong1Y && ballY+ballHeight>pong1Y || ballX+10<pong1X+pongWidth && ballY<pong1Y+pongHeight && ballY+ballHeight>pong1Y+pongHeight){
     lose.style.display='flex';
-    deathParams();
-      }
+   deathParams();
+ }
 
 
 
