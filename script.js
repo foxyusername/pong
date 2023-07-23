@@ -66,9 +66,9 @@ function drawPong2(){
 function automatePong(){
 if(ballY+pongHeight-100<canvas.height && ballY-number>=0 && pong1Touch===true){
     if(pong2Y<ballY-number){
-        pong2Y+=8;
+        pong2Y+=14;
     }else if(pong2Y>ballY-number){
-        pong2Y-=8;
+        pong2Y-=14;
     }else if(pong2Y===ballY-number){
      pong2Y=ballY-number;
     }
@@ -117,7 +117,7 @@ function moveBall(){
     {
      vectorX=-vectorX;
     pong1Touch=true;
-    number=Math.floor(Math.random() * 300);
+    number=Math.floor(Math.random() * 250);
     }
 
 
