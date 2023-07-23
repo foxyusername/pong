@@ -11,12 +11,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: azure;
+    background:linear-gradient(to bottom, rgb(176, 3, 141),rgb(0, 30, 79))
 }
 #canvas{
     width: 90%;
     height: 80vh;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
 }
 
 #win{

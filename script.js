@@ -142,7 +142,7 @@ function moveBall(){
    deathParams();
  }
 
- if(ballX+ballWidth-25>pong2X && ballY+ballHeight>pong2Y && ballY<pong2Y || ballX+ballWidth-25>pong2X && ballY<pong2Y+pongHeight && ballY + ballHeight>pong2Y){
+ if(ballX+ballWidth-23>pong2X && ballY+ballHeight>pong2Y && ballY<pong2Y || ballX+ballWidth-23>pong2X && ballY<pong2Y+pongHeight && ballY + ballHeight>pong2Y){
     win.style.display='flex';
     deathParams();
 }
