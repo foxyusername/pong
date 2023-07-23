@@ -100,8 +100,8 @@ function moveBall(){
     }
 
    if(ballX+2<pong1X+pongWidth && ballY>=pong1Y && ballY<=pong1Y+pongHeight || ballX+2<pong1X+pongWidth && ballY+ballHeight>=pong1Y && ballY+ballHeight<=pong1Y+pongHeight ){
-        alert('you died from heart attack');
-        deathParams();
+    lose.style.display='flex';
+    deathParams();
       }
 
 
