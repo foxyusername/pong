@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+#game{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#canvas{
+    width: 90%;
+    height: 80vh;
+    background-color: black;
+}
+
+#win{
+    display: none;
+  position: absolute;
+  flex-direction: column;
+  gap: 70px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgb(255, 255, 255);
+  width: 16%;
+  max-width: calc(2000px * 16/100);
+  max-width: 1500;
+  height: 150px;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+#win h1{
+    font-size: 25px;
+    color: rgb(42, 42, 42);
+    margin-top: 10px;
+}
+#win button{
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+}
+#win button:hover{
+    transform: scale(1.1);
+}
+
+
+#lose{
+    display: none;
+  position: absolute;
+  flex-direction: column;
+  gap: 70px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgb(255, 255, 255);
+  width: 16%;
+  max-width: calc(2000px * 16/100);
+  max-width: 1500;
+  height: 150px;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+#lose h1{
+    font-size: 25px;
+    color: rgb(42, 42, 42);
+    margin-top: 10px;
+}
+#lose button{
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+}
+#lose button:hover{
+    transform: scale(1.1);
+}
+
+button{
+    cursor: pointer;
+}
+
+@media only screen and (min-width:350px){
+    #canvas{
+        max-width: 500px;
+        height:50vh;
+    }
+}
+
+
+@media only screen and (min-width:1000px){
+    #canvas{
+        max-width: 800px;
+        height: 80vh;
+    }
+}
+
+@media only screen and (min-width:2000px){
+    #canvas{
+        max-width: 1500px;
+        height: 80vh;
+    }
+}
+
+@media only screen and (max-height:500px){
+   #canvas{
+    width: 60%;
+    height: 95vh;
+   }
+}
